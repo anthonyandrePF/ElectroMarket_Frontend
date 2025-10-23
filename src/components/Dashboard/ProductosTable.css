@@ -1,0 +1,186 @@
+/* 💎 Tabla de Productos - Estilo Futurista ElectroMarket */
+.productos-table {
+  background: rgba(10, 15, 25, 0.6);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
+  padding: 2rem;
+  color: #e0f7ff;
+  animation: fadeInTable 0.8s ease-in-out;
+  transition: all 0.3s ease;
+}
+
+.productos-table:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+/* 🔹 Título */
+.productos-table h3 {
+  color: #00c8ff;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+  cursor: default;
+}
+
+.productos-table h3:hover {
+  color: #7ee9ff;
+  text-shadow: 0 0 25px rgba(0, 255, 255, 1);
+}
+
+/* 📋 Contenedor scroll */
+.table-container {
+  overflow-x: auto;
+  border-radius: 14px;
+  box-shadow: inset 0 0 12px rgba(0, 255, 255, 0.05);
+}
+
+/* 📊 Tabla */
+.productos-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+/* 🔸 Encabezados */
+.productos-table th {
+  background: rgba(0, 255, 255, 0.1);
+  color: #00eaff;
+  font-weight: 700;
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* 🔹 Celdas */
+.productos-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.productos-table tr:hover td {
+  background: rgba(0, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+/* 🏅 Columnas destacadas */
+.rank {
+  text-align: center;
+  font-weight: bold;
+  color: #00eaff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+.product-name {
+  font-weight: 600;
+  color: #e6faff;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.product-name .neon-text {
+  text-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
+}
+
+.quantity {
+  text-align: center;
+  color: #fcd34d;
+  font-weight: 600;
+}
+
+.revenue {
+  text-align: right;
+  color: #10b981;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+/* 🧩 Mensaje de “sin datos” */
+.productos-table p {
+  text-align: center;
+  color: #aeeaff;
+  font-style: italic;
+  padding: 40px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+/* 🎬 Animación */
+@keyframes fadeInTable {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contenedor de la tarjeta: controlar posicionamiento y recorte */
+.producto-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Contenedor de la imagen: altura fija, recorte, y que no capture clicks */
+.producto-imagen {
+  height: 220px;
+  max-height: 220px;
+  overflow: hidden;
+  pointer-events: none; /* evita que la imagen "se coma" los clicks de los botones */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+/* Imagen: ajustar tamaño sin salirse, mantener proporción */
+.producto-imagen img,
+.card-imagen {
+  width: 100%;
+  height: 100%;
+  max-height: 220px;
+  object-fit: contain;    /* usar 'contain' para que no se salga; cambiar a 'cover' si prefieres recorte */
+  display: block;
+  pointer-events: none;   /* dejar los clicks pasar a los elementos encima */
+}
+
+/* En pantallas grandes aumentar un poco la altura */
+@media (min-width: 1200px) {
+  .producto-imagen,
+  .card-imagen,
+  .producto-imagen img {
+    height: 280px;
+    max-height: 280px;
+  }
+}
+
+/* Asegurar que el contenido y botones de la tarjeta estén por encima y reciban clicks */
+.producto-card .card-content,
+.producto-card .card-footer,
+.producto-card button,
+.producto-card .btn {
+  position: relative;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+/* Forzar modal por encima de todo si está oculto detrás */
+.modal,
+.edit-modal {
+  z-index: 99999 !important;
+}

@@ -1,0 +1,129 @@
+/* 💎 Contenedor principal del gráfico */
+.ventas-chart {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.8rem;
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  color: #e0f7ff;
+  animation: fadeInChart 0.8s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ventas-chart:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+}
+
+/* 🧠 Cabecera */
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+/* 🔹 Título del gráfico */
+.chart-header h3 {
+  color: #000;
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+  border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+  display: inline-block;
+  padding-bottom: 6px;
+  margin: 0;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.chart-header h3:hover {
+  color: #00ffff;
+  text-shadow: 0 0 12px rgba(0, 255, 255, 0.7);
+}
+
+/* 🎛️ Controles del gráfico */
+.chart-controls {
+  display: flex;
+  gap: 10px;
+  background: rgba(0, 255, 255, 0.08);
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.25);
+  transition: background 0.3s ease;
+}
+
+.chart-controls:hover {
+  background: rgba(0, 255, 255, 0.15);
+}
+
+/* 🔘 Botones */
+.chart-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #aeeaff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+}
+
+.chart-btn:hover:not(.active) {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+/* 🔹 Botón activo */
+.chart-btn.active {
+  background: rgba(0, 255, 255, 0.25);
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+  transform: scale(1.05);
+  border: 1px solid rgba(0, 255, 255, 0.4);
+}
+
+/* 📈 Contenedor del gráfico (Recharts) */
+.recharts-wrapper {
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.25));
+  border-radius: 12px;
+  transition: filter 0.3s ease;
+}
+
+.recharts-wrapper:hover {
+  filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.45));
+}
+
+/* 🎬 Animación de aparición */
+@keyframes fadeInChart {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsivo */
+@media (max-width: 768px) {
+  .chart-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .chart-controls {
+    align-self: stretch;
+    justify-content: space-between;
+  }
+}

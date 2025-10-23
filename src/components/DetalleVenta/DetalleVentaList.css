@@ -1,0 +1,85 @@
+/* 🌌 Contenedor de detalles */
+.detalles-container {
+  padding: 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 900px;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* ✨ Título con glow */
+.detalles-container h2 {
+  color: #ffffff;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  text-shadow:
+    0 0 6px #3B82F6,
+    0 0 12px #3B82F6,
+    0 0 18px rgba(59, 130, 246, 0.7);
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  cursor: default;
+}
+
+/* 🖌 Tabla futurista */
+.detalles-table {
+  margin: 0 auto;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  color: #e0f7ff;
+}
+
+.detalles-table th {
+  background: rgba(0, 255, 255, 0.1);
+  color: #00eaff;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.25);
+}
+
+.detalles-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+  color: #b0cce0;
+}
+
+.detalles-table tr:hover {
+  background: rgba(0, 255, 255, 0.08);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.15) inset;
+}
+
+/* 🔹 Subtotales y cantidad destacados */
+.detalles-table td:nth-child(3),
+.detalles-table td:nth-child(4) {
+  font-weight: 600;
+  color: #10b981;
+}
+
+/* 🎬 Animación de aparición */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .detalles-container {
+    padding: 1rem;
+    width: 95%;
+  }
+
+  .detalles-table th,
+  .detalles-table td {
+    padding: 8px 10px;
+  }
+}

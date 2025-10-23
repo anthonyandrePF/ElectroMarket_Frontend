@@ -1,0 +1,554 @@
+/* === FUENTE Y BASE === */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@400;500;600&display=swap");
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(120deg, #020617, #1e3a8a, #1e40af);
+  background-size: 300% 300%;
+  animation: moveBackground 10s ease infinite;
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+
+/* === Fondo animado === */
+@keyframes moveBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === HEADER === */
+.app-header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  padding: 1.2rem 0;
+  color: #fff;
+  animation: fadeDown 1s ease;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* === HEADER === */
+.app-header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  padding: 1.2rem 0;
+  color: #fff;
+  animation: fadeDown 1s ease;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* === TÍTULO CON ANIMACIÓN === */
+.header-title h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.1rem;
+  margin: 0;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px #00ffff, 0 0 16px rgba(0, 255, 255, 0.6);
+  color: #e0f7ff;
+  cursor: pointer;
+
+  /* ✨ Efecto de brillo pulsante constante */
+  animation: glowPulse 3s infinite ease-in-out;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* 🖱️ Efecto al pasar el cursor */
+.header-title h1:hover {
+  transform: scale(1.15);
+  text-shadow: 0 0 20px #00ffff, 0 0 35px cyan;
+}
+
+/* 🔁 Animación de pulso suave */
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 10px #00ffff, 0 0 25px rgba(0, 255, 255, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 18px #00e5ff, 0 0 40px rgba(0, 255, 255, 0.8);
+  }
+}
+
+.header-title p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+
+/* === Animaciones del título === */
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 0 0 8px #00ffff, 0 0 25px rgba(0, 255, 255, 0.7);
+    color: #00e5ff;
+  }
+  50% {
+    text-shadow: 0 0 18px #66fcf1, 0 0 40px rgba(0, 255, 255, 0.9);
+    color: #66fcf1;
+  }
+}
+
+@keyframes fadeInTitle {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* === USUARIO HEADER === */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 500;
+}
+
+.logout-btn {
+  background: #00bcd4;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.3rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px #00ffff;
+}
+
+.logout-btn:hover {
+  background: #0284c7;
+  box-shadow: 0 0 15px #00e5ff;
+  transform: scale(1.07);
+}
+
+/* === NAVBAR CENTRADO Y AJUSTADO === */
+.navigation {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.menu-horizontal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap; /* 🔒 Evita que los botones bajen */
+  gap: 18px; /* 🧩 Un poco más de espacio entre botones */
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 15px 40px; /* 📏 Ampliado para más margen lateral */
+  max-width: 1100px; /* 💡 Más ancho total del contenedor */
+  width: 95%; /* 📱 Ajuste flexible en pantallas pequeñas */
+  margin: 0 auto;
+  box-shadow: 0 0 15px cyan;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow-x: auto; /* 🧭 Si el espacio no alcanza, scroll horizontal */
+  scrollbar-width: none; /* Oculta scroll en Firefox */
+}
+
+.menu-horizontal::-webkit-scrollbar {
+  display: none; /* Oculta scroll en Chrome/Safari */
+}
+
+.menu-horizontal:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px cyan;
+}
+
+/* === BOTONES DEL MENÚ === */
+.menu-btn {
+  background-color: white;
+  color: #000;
+  border: 2px solid cyan;
+  border-radius: 10px;
+  font-weight: 600;
+  padding: 10px 18px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px cyan;
+  background-color: #e0ffff;
+}
+
+/* Botón activo */
+.menu-btn.active {
+  background-color: cyan;
+  color: #000;
+  box-shadow: 0 0 20px cyan;
+}
+
+/* === CONTENEDOR PRINCIPAL === */
+.main-content {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.25);
+  transition: all 0.4s ease;
+  animation: fadeIn 1s ease forwards;
+}
+
+.main-content:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.45);
+}
+
+/* === BIENVENIDA === */
+.welcome {
+  text-align: center;
+  color: white;
+}
+
+.welcome h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.welcome p {
+  opacity: 0.85;
+  font-size: 1.05rem;
+}
+
+
+
+/* === ANIMACIONES === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🎯 Animación del título principal */
+.hover-grow {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hover-grow:hover {
+  transform: scale(1.1);
+  color: #00eaff;
+  text-shadow: 0 0 15px rgba(0, 238, 255, 0.7);
+}
+
+/* 🎨 Tarjetas del panel de inicio */
+.welcome {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.welcome-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  background: #1a1a1a;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 238, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+}
+
+/* 🔘 Botones de acción rápida */
+.quick-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.quick-actions .menu-btn {
+  background: linear-gradient(90deg, #00b4d8, #0077b6);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.quick-actions .menu-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px cyan;
+}
+
+/* 💠 Contenedor principal de bienvenida */
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* 🪩 Tarjeta moderna */
+.welcome-card {
+  background: rgba(0, 10, 20, 0.7);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 2rem 3rem;
+  max-width: 700px;
+  box-shadow: 0 0 20px rgba(0, 238, 255, 0.25);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.welcome-card:hover {
+  transform: translateY(-6px);
+}
+
+/* ✨ Texto principal */
+.welcome-title {
+  font-size: 2rem;
+  color: #00eaff;
+  font-family: "Orbitron", sans-serif;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 12px rgba(0, 238, 255, 0.7);
+}
+
+.welcome-title span {
+  color: #fff;
+}
+
+/* 📜 Texto secundario */
+.welcome-text {
+  color: #e0f7ff;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+/* ⌨️ Animación de texto tipo “escritura” */
+.typing-text {
+  font-family: monospace;
+  font-size: 1.1rem;
+  color: cyan;
+  border-right: 2px solid cyan;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 4s steps(35) 1s forwards, blink 0.7s infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* ⚡ Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🌟 --- BLOQUE COMPLEMENTARIO PARA LA TARJETA DE BIENVENIDA --- 🌟 */
+
+/* Contenedor principal */
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  background: radial-gradient(circle at top, #f0f6ff, #dfe9ff);
+}
+
+/* Tarjeta con borde animado */
+.welcome-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 3rem 3.5rem;
+  max-width: 600px;
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.welcome-card:hover {
+  transform: scale(1.02);
+}
+
+/* 🌟 TARJETA DE BIENVENIDA MEJORADA 🌟 */
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh; /* 🔹 cambia 'height' por 'min-height' */
+  background: transparent;
+  animation: fadeIn 1s ease-in-out;
+  overflow: visible; /* 🔹 permite que se vea todo el contenido */
+}
+
+
+/* 🪩 Tarjeta principal */
+.welcome-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  border-radius: 18px;
+  padding: 3rem 3.5rem;
+  max-width: 700px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.35);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #e0f7ff;
+}
+
+.welcome-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+}
+
+/* ✨ Borde animado */
+.welcome-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 2px;
+  background: linear-gradient(120deg, cyan, #00b4d8, #007bff, cyan);
+  background-size: 300% 300%;
+  animation: borderFlow 6s linear infinite;
+
+  /* 💠 Borde animado con compatibilidad cross-browser */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+
+@keyframes borderFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ✍️ Título */
+.welcome-title {
+  font-size: 2rem;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 600;
+  color: cyan;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+}
+
+.welcome-title span {
+  color: #fff;
+}
+
+/* 💬 Texto de bienvenida */
+.welcome-text {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+  color: #d8f3ff;
+}
+
+/* ⌨️ Texto animado tipo escritura */
+.typing-text {
+  font-family: monospace;
+  font-size: 1.1rem;
+  color: #00eaff;
+  border-right: 2px solid #00eaff;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typing 4s steps(35) 1s forwards, blink 0.7s infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* 🕒 Fecha y hora */
+.welcome-time {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #aeeaff;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.8rem 1.4rem;
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: inset 0 0 8px rgba(0, 255, 255, 0.25);
+  text-align: center;
+  white-space: normal;      /* Permite saltos de línea si es necesario */
+  overflow: visible;        /* Evita que se oculte el texto */
+  min-width: 250px;         /* Asegura espacio suficiente para "Lima, Perú" */
+  word-break: break-word;   /* Rompe el texto si se alarga */
+}

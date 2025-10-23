@@ -1,0 +1,305 @@
+/* 🌌 Estilo Glassmorphism Neón Mejorado */
+.gestion-usuarios-container {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 2rem;
+    border-radius: 20px;
+    background: rgba(17, 25, 40, 0.55);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    box-shadow: 0 0 25px rgba(0, 153, 255, 0.2);
+    color: #e0e7ff;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* ✨ Animación general de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔹 Encabezado */
+.usuarios-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(0, 153, 255, 0.4);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.usuarios-header h2 {
+    font-size: 1.9rem;
+    color: #00bfff;
+    text-shadow: 0 0 12px #00bfff, 0 0 20px rgba(0, 153, 255, 0.6);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.usuarios-header h2:hover {
+    color: #a5f3fc;
+    text-shadow: 0 0 25px #00eaff, 0 0 40px #00eaff;
+    transform: scale(1.05);
+}
+
+/* 🎛️ Botón crear usuario */
+.btn-toggle-form {
+    background: linear-gradient(90deg, rgba(0,153,255,0.3), rgba(0,204,255,0.5));
+    border: 1px solid rgba(0,204,255,0.4);
+    color: #e0f2fe;
+    padding: 0.9rem 1.8rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 12px rgba(0, 204, 255, 0.3);
+}
+
+.btn-toggle-form:hover {
+    background: rgba(0, 204, 255, 0.6);
+    box-shadow: 0 0 25px #00eaff;
+    transform: scale(1.05);
+}
+
+/* 🧾 Formulario */
+.usuario-form-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 204, 255, 0.3);
+    border-radius: 18px;
+    padding: 2.5rem;
+    box-shadow: 0 0 25px rgba(0, 153, 255, 0.25);
+    margin-bottom: 2rem;
+    color: #f1f5f9;
+    transition: all 0.3s ease;
+    animation: popIn 0.4s ease-in-out;
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.usuario-form-container:hover {
+    box-shadow: 0 0 30px rgba(0, 204, 255, 0.4);
+}
+
+/* 📋 Título del formulario */
+.usuario-form-container h3 {
+    color: #38bdf8;
+    text-shadow: 0 0 10px #0ea5e9;
+    margin-bottom: 1.8rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+/* Campos */
+.usuario-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+.form-group input {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(0, 204, 255, 0.3);
+    border-radius: 10px;
+    padding: 0.9rem;
+    color: #e0f2fe;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #00eaff;
+    box-shadow: 0 0 12px #00eaff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 🪄 Animación de foco */
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 10px rgba(0,204,255,0.2); }
+    50% { box-shadow: 0 0 20px rgba(0,204,255,0.5); }
+}
+
+.form-group input:focus {
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+/* 🔘 Botones */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.btn-submit, .btn-cancel {
+    padding: 0.9rem 1.8rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.btn-submit {
+    background: linear-gradient(90deg, rgba(0,153,255,0.3), rgba(0,204,255,0.5));
+    color: #e0f2fe;
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.25);
+}
+
+.btn-submit:hover {
+    background: rgba(0, 204, 255, 0.6);
+    box-shadow: 0 0 25px #00eaff;
+    transform: translateY(-2px);
+}
+
+.btn-cancel {
+    background: rgba(148, 163, 184, 0.25);
+    color: #f1f5f9;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.btn-cancel:hover {
+    background: rgba(148, 163, 184, 0.45);
+    box-shadow: 0 0 12px rgba(148, 163, 184, 0.5);
+}
+
+/* ⚡ Lista de usuarios */
+.usuarios-list h3 {
+    color: #38bdf8;
+    text-shadow: 0 0 10px #0ea5e9;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.usuarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 1.5rem;
+}
+
+/* 💎 Tarjetas */
+.usuario-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(0, 204, 255, 0.3);
+    border-radius: 16px;
+    padding: 1.8rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 153, 255, 0.15);
+}
+
+.usuario-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px #00eaff;
+}
+
+/* Información */
+.usuario-info h4 {
+    color: #e0f2fe;
+    font-size: 1.1rem;
+}
+
+.usuario-email,
+.usuario-rol {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+/* Botones dentro de tarjeta */
+.usuario-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.btn-edit {
+    background: rgba(234, 179, 8, 0.2);
+    color: #fde68a;
+    border: 1px solid rgba(234, 179, 8, 0.4);
+}
+
+.btn-edit:hover {
+    background: rgba(234, 179, 8, 0.35);
+    box-shadow: 0 0 15px #fde047;
+}
+
+.btn-delete {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fecaca;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.btn-delete:hover {
+    background: rgba(239, 68, 68, 0.35);
+    box-shadow: 0 0 15px #ef4444;
+}
+
+/* Mensajes */
+.message {
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 500;
+    animation: fadeIn 0.5s ease;
+}
+
+.message.success {
+    background: rgba(34, 197, 94, 0.25);
+    border: 1px solid rgba(34, 197, 94, 0.5);
+    color: #bbf7d0;
+}
+
+.message.error {
+    background: rgba(239, 68, 68, 0.25);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    color: #fecaca;
+}
+
+/* 💠 Resaltado para nombre y rol */
+.usuario-nombre {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #00eaff;
+    text-shadow: 0 0 8px #00eaff, 0 0 16px rgba(0, 238, 255, 0.5);
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.usuario-card:hover .usuario-nombre {
+    color: #a5f3fc;
+    text-shadow: 0 0 20px #00eaff, 0 0 40px #00eaff;
+    transform: scale(1.05);
+}
+
+/* ✨ Rol con brillo */
+.rol-text {
+    color: #38bdf8;
+    font-weight: 600;
+    text-shadow: 0 0 8px #38bdf8, 0 0 15px rgba(56, 189, 248, 0.6);
+    transition: all 0.3s ease;
+}
+
+.usuario-card:hover .rol-text {
+    color: #7dd3fc;
+    text-shadow: 0 0 20px #38bdf8, 0 0 40px #38bdf8;
+}

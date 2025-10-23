@@ -1,0 +1,111 @@
+/* 💎 Tarjeta de Métricas - Estilo Futurista ElectroMarket */
+.metric-card {
+  background: rgba(10, 15, 25, 0.65);
+  border-radius: 20px;
+  padding: 1.8rem;
+  border-left: 5px solid cyan;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.12);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  color: #e0f7ff;
+  transition: all 0.35s ease-in-out;
+  animation: fadeInMetric 0.8s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ✨ Brillo dinámico al pasar el cursor */
+.metric-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.25), transparent 70%);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+  transition: opacity 0.4s, transform 0.5s;
+  pointer-events: none;
+}
+
+.metric-card:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.metric-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* 🧩 Cabecera */
+.metric-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.metric-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.metric-card:hover .metric-icon {
+  transform: rotate(8deg) scale(1.1);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+}
+
+/* 🏷️ Título */
+.metric-title {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-left: 0.9rem;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+/* 📊 Contenido */
+.metric-content {
+  text-align: center;
+}
+
+.metric-value {
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+  margin-bottom: 0.3rem;
+  transition: transform 0.3s ease;
+}
+
+.metric-card:hover .metric-value {
+  transform: scale(1.06);
+}
+
+.metric-subtitle {
+  font-size: 0.9rem;
+  color: #b3eaff;
+  opacity: 0.9;
+}
+
+/* 🎬 Animación */
+@keyframes fadeInMetric {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

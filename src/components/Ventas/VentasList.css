@@ -1,0 +1,131 @@
+/* === CONTENEDOR PRINCIPAL === */
+.ventas-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  background: rgba(10, 15, 25, 0.6);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 20px;
+  border: 1px solid rgba(0, 200, 255, 0.2);
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.15);
+  padding: 2rem;
+  transition: all 0.3s ease-in-out;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* === TÍTULO === */
+.ventas-container h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #00c8ff;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.8);
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ventas-container h2:hover {
+  color: #7ee9ff;
+  text-shadow: 0 0 25px rgba(0, 255, 255, 1),
+               0 0 45px rgba(0, 150, 255, 0.6);
+  transform: scale(1.05);
+}
+
+/* === TABLA DE VENTAS === */
+.ventas-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.05);
+}
+
+.ventas-table thead {
+  background: rgba(0, 200, 255, 0.08);
+}
+
+.ventas-table th,
+.ventas-table td {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  color: #e0f7ff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.95rem;
+}
+
+.ventas-table th {
+  color: #00c8ff;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(0, 200, 255, 0.6);
+}
+
+.ventas-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.ventas-table tr:hover {
+  background: rgba(0, 200, 255, 0.12);
+  transition: background 0.3s ease;
+}
+
+/* === BOTONES === */
+.btn-ver,
+.btn-volver {
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px rgba(0, 200, 255, 0.3);
+}
+
+/* Botón "Ver Detalles" con su degradado original */
+.btn-ver {
+  background: linear-gradient(90deg, #00c8ff, #0077ff);
+}
+
+.btn-ver:hover {
+  background: linear-gradient(90deg, #00e1ff, #00aaff);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+  transform: scale(1.05);
+}
+
+/* Botón "Volver" con efecto de agrandamiento */
+.btn-volver {
+  background: transparent;
+  border: 1px solid rgba(0, 200, 255, 0.6);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  color: #e0f7ff;
+  transition: transform 180ms ease, box-shadow 220ms ease, background 180ms ease, color 180ms ease;
+  transform-origin: center center;
+  will-change: transform, box-shadow;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.btn-volver:hover,
+.btn-volver:focus,
+.btn-volver:active {
+  background: rgba(0, 200, 255, 0.15);
+  color: #7ee9ff;
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.6);
+  transform: scale(1.08);
+  outline: none;
+}
+
+/* === ANIMACIÓN === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
