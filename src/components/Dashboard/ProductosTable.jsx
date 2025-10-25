@@ -2,6 +2,8 @@ import React from 'react';
 import './ProductosTable.css';
 
 const ProductosTable = ({ productos }) => {
+  console.log('🔍 PRODUCTOS EN TABLA:', productos);
+
   if (!productos || productos.length === 0) {
     return (
       <div className="productos-table">
@@ -14,7 +16,6 @@ const ProductosTable = ({ productos }) => {
   return (
     <div className="productos-table">
       <h3>📊 Top 10 Productos Más Vendidos</h3>
-
       <div className="table-container">
         <table>
           <thead>
@@ -25,18 +26,17 @@ const ProductosTable = ({ productos }) => {
               <th>Ingresos Totales</th>
             </tr>
           </thead>
-
           <tbody>
             {productos.map((producto, index) => (
-              <tr key={producto.idProducto || index}>
+              <tr key={index}>
                 <td className="rank">{index + 1}</td>
                 <td className="product-name">
                   <span className="neon-text">
-                    {producto.nombreProducto || 'Producto sin nombre'}
+                    {producto.nombre || 'Producto sin nombre'}
                   </span>
                 </td>
                 <td className="quantity">
-                  {producto.totalVendido?.toLocaleString() || 0}
+                  {producto.unidadesVendidas?.toLocaleString() || 0}
                 </td>
                 <td className="revenue">
                   S/. {(producto.ingresosTotales || 0).toLocaleString()}

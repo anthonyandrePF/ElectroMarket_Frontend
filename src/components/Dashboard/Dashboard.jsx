@@ -29,6 +29,10 @@ const Dashboard = () => {
           dashboardService.getProductosMasVendidos()
         ]);
 
+        console.log('📊 RESUMEN:', resumenData);
+        console.log('📊 VENTAS POR DÍA:', ventasDiaData);
+        console.log('📊 PRODUCTOS MÁS VENDIDOS:', productosData);
+
         setResumen(resumenData);
         setVentasPorMes(ventasMesData);
         setVentasPorDia(ventasDiaData);
@@ -43,6 +47,31 @@ const Dashboard = () => {
 
     fetchDashboardData();
   }, []);
+
+  // Opción alternativa - Usar la fecha más reciente como "hoy"
+  const calcularMetricas = () => {
+    if (!resumen) return {};
+
+    // Usar la fecha más reciente de ventasPorDia como "hoy"
+    const fechaMasReciente = ventasPorDia?.[0]?.fecha;
+    const ventaHoy = ventasPorDia?.find(venta => venta.fecha === fechaMasReciente);
+    
+    console.log('🔍 Fecha más reciente en datos:', fechaMasReciente);
+    console.log('🛒 Venta de hoy (fecha más reciente):', ventaHoy);
+
+    const productosVendidosHoy = ventaHoy?.totalProductosVendidos || 0;
+
+    return {
+      ventasHoy: resumen.ventasHoy || 0,
+      ingresosHoy: resumen.ingresosHoy || 0,
+      productosVendidosHoy: productosVendidosHoy,
+      ingresosMes: ventasPorMes?.reduce((total, mes) => total + (mes.totalVentas || 0), 0) || 0,
+      ventasMes: ventasPorMes?.reduce((total, mes) => total + (mes.cantidadVentas || 0), 0) || 0,
+      productosBajoStock: resumen.productosBajoStock || 0
+    };
+  };
+
+  const metricas = calcularMetricas();
 
   if (loading) {
     return (
@@ -72,12 +101,48 @@ const Dashboard = () => {
         </header>
 
         <section className="metrics-grid">
-          <MetricCard title="Ventas Hoy" value={resumen?.totalVentasHoy || 0} subtitle="transacciones" icon="🛒" color="#3B82F6" />
-          <MetricCard title="Ingresos Hoy" value={`S/. ${(resumen?.ingresosHoy || 0).toLocaleString()}`} subtitle="total del día" icon="💰" color="#10B981" />
-          <MetricCard title="Productos Vendidos Hoy" value={resumen?.totalProductosVendidosHoy || 0} subtitle="unidades" icon="📦" color="#F59E0B" />
-          <MetricCard title="Ingresos del Mes" value={`S/. ${(resumen?.ingresosMes || 0).toLocaleString()}`} subtitle="total mensual" icon="📊" color="#8B5CF6" />
-          <MetricCard title="Ventas del Mes" value={resumen?.totalVentasMes || 0} subtitle="transacciones" icon="📈" color="#EC4899" />
-          <MetricCard title="Productos Bajo Stock" value={resumen?.productosBajoStock || 0} subtitle="necesitan reposición" icon="⚠️" color="#EF4444" />
+          <MetricCard 
+            title="VENTAS HOY" 
+            value={metricas.ventasHoy} 
+            subtitle="transacciones" 
+            icon="🛒" 
+            color="#3B82F6" 
+          />
+          <MetricCard 
+            title="INGRESOS HOY" 
+            value={`S/. ${(metricas.ingresosHoy || 0).toLocaleString()}`} 
+            subtitle="total del día" 
+            icon="💰" 
+            color="#10B981" 
+          />
+          <MetricCard 
+            title="PRODUCTOS VENDIDOS HOY" 
+            value={metricas.productosVendidosHoy} 
+            subtitle="unidades" 
+            icon="📦" 
+            color="#F59E0B" 
+          />
+          <MetricCard 
+            title="INGRESOS DEL MES" 
+            value={`S/. ${(metricas.ingresosMes || 0).toLocaleString()}`} 
+            subtitle="total mensual" 
+            icon="📊" 
+            color="#8B5CF6" 
+          />
+          <MetricCard 
+            title="VENTAS DEL MES" 
+            value={metricas.ventasMes} 
+            subtitle="transacciones" 
+            icon="📈" 
+            color="#EC4899" 
+          />
+          <MetricCard 
+            title="PRODUCTOS BAJO STOCK" 
+            value={metricas.productosBajoStock} 
+            subtitle="necesitan reposición" 
+            icon="⚠️" 
+            color="#EF4444" 
+          />
         </section>
 
         <section className="charts-section">
