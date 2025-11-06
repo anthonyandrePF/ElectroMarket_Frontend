@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './DetalleVentaList.css';
+import "./DetalleVentaList.css";
 
 function DetalleVentaList({ ventaId }) {
   const [detalles, setDetalles] = useState([]);
@@ -44,8 +44,8 @@ function DetalleVentaList({ ventaId }) {
         </thead>
         <tbody>
           {detalles.map((detalle) => (
-            <tr key={detalle.idDetalle}>
-              <td>{detalle.idDetalle}</td>
+            <tr key={detalle.idDetalleVenta}>
+              <td>{detalle.idDetalleVenta}</td>
               <td>{detalle.producto?.nombre || "Producto no disponible"}</td>
               <td>{detalle.cantidad}</td>
               <td>S/ {Number(detalle.subtotal || 0).toFixed(2)}</td>

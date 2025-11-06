@@ -39,6 +39,7 @@ function ClientesList() {
               <th>Dirección</th>
               <th>Teléfono</th>
               <th>Correo</th>
+              <th>Rol</th>
             </tr>
           </thead>
           <tbody>
@@ -49,6 +50,7 @@ function ClientesList() {
                 <td>{cliente.direccion || "—"}</td>
                 <td>{cliente.telefono || "—"}</td>
                 <td>{cliente.correo}</td>
+                <td>{cliente.rol?.nombre || "—"}</td>
               </tr>
             ))}
           </tbody>

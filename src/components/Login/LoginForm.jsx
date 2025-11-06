@@ -17,16 +17,17 @@ function LoginForm({ onLoginSuccess }) {
         body: JSON.stringify({ correo, contrasena }),
       });
 
-      if (!response.ok) {
-        const text = await response.text();
-        setError(text);
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        setError(data.message || "Error en el inicio de sesión");
         return;
       }
 
-      const user = await response.json();
-      localStorage.setItem("usuario", JSON.stringify(user));
-      onLoginSuccess(user);
+      localStorage.setItem("usuario", JSON.stringify(data.usuario));
+      onLoginSuccess(data.usuario);
     } catch (err) {
+      console.error("Error de conexión:", err);
       setError("Error al conectar con el servidor");
     }
   };

@@ -8,6 +8,7 @@ const CrearUsuario = () => {
     correo: "",
     contrasena: "",
   });
+
   const [estado, setEstado] = useState({
     loading: false,
     message: "",
@@ -23,14 +24,28 @@ const CrearUsuario = () => {
     setEstado({ loading: true, message: "", error: "" });
 
     try {
-      const res = await axios.post("http://localhost:8080/api/auth/registro", formData);
+      const res = await axios.post(
+        "http://localhost:8080/api/auth/registro",
+        formData
+      );
+
       if (res.data.success) {
-        setEstado({ loading: false, message: "✅ Usuario administrador creado exitosamente", error: "" });
+        setEstado({
+          loading: false,
+          message:
+            res.data.message || "✅ Usuario administrador creado exitosamente",
+          error: "",
+        });
         setFormData({ nombre: "", correo: "", contrasena: "" });
       } else {
-        setEstado({ loading: false, message: "", error: "No se pudo crear el usuario." });
+        setEstado({
+          loading: false,
+          message: "",
+          error: res.data.message || "❌ No se pudo crear el usuario",
+        });
       }
     } catch (err) {
+      console.error("Error en registro:", err);
       setEstado({
         loading: false,
         message: "",
@@ -43,7 +58,8 @@ const CrearUsuario = () => {
     <div className="crear-usuario-container">
       <h2>👤 Crear Nuevo Usuario</h2>
       <p className="description">
-        Agrega nuevos administradores con acceso completo al sistema <strong>ElectroMarket</strong>.
+        Agrega nuevos administradores con acceso completo al sistema{" "}
+        <strong>ElectroMarket</strong>.
       </p>
 
       <form onSubmit={handleSubmit} className="usuario-form">
@@ -89,8 +105,16 @@ const CrearUsuario = () => {
         </button>
       </form>
 
-      {estado.message && <div className="message success animate__animated animate__fadeIn">{estado.message}</div>}
-      {estado.error && <div className="message error animate__animated animate__shakeX">{estado.error}</div>}
+      {estado.message && (
+        <div className="message success animate__animated animate__fadeIn">
+          {estado.message}
+        </div>
+      )}
+      {estado.error && (
+        <div className="message error animate__animated animate__shakeX">
+          {estado.error}
+        </div>
+      )}
     </div>
   );
 };
